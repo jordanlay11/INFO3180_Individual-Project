@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block css %}{% endblock %} {% block main %}
+<div class="p-5 mb-4 bg-light rounded-3 border">
+  <div class="container-fluid py-5">
+    <div class="frame">
+      <div class="pimage">
+        <img
+          src="{{url_for('static', filename='images/'~property.photo)}}"
+          alt="{{property.title}}"
+        />
+      </div>
+      <div class="property-info">
+        <h2 class="mb-4">{{property.title}}</h2>
+        <div>
+          <span class="price">${{property.price}}</span
+          ><span class="ptype">{{property.type}}</span>
+        </div>
+        <p class="mt-3">{{property.description}}</p>
+        <div>
+          <span class="pbedroom">🛏{{property.bedrooms}} Bedrooms</span
+          ><span class="pbathroom">🚿{{property.bathrooms}} Bathrooms</span>
+        </div>
+        <p class="mt-3">📍{{property.location}}</p>
+        <button class="btn btn-primary">Email Realtor</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}

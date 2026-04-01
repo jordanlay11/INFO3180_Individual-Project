@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block css %}{% endblock %} {% block main %}
+<div class="p-5 mb-4 bg-light rounded-3 border">
+  {% include 'flash_messages.html' %}
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Properties</h1>
+    <div class="property-list">
+      {% for property in properties %}
+      <div class="property-card">
+        <div class="property-image">
+          <img
+            src="{{url_for('static', filename='images/'~property.photo)}}"
+            alt="{{property.title}}"
+          />
+        </div>
+        <div class="property-info">
+          <h3>{{property.title}}</h3>
+          <p class="location">📍{{property.location}}</p>
+          <div class="price">${{property.price}}</div>
+        </div>
+        <div class="view-property">
+          <a href="{{ url_for('property_detail', propertyid=property.id) }}"
+            >View Property</a
+          >
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}

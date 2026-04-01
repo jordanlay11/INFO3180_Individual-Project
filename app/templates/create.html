@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block css %}{% endblock %} {% block main %}
+<div class="p-5 mb-4 bg-light rounded-3 border">
+  {% include 'flash_messages.html' %}
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">
+      Enter information below to create new property.
+    </h1>
+    <form
+      action="{{ url_for('create') }}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {{form.csrf_token}}
+      <div class="form-group mb-3">
+        {{form.title.label(class="form-label")}}
+        {{form.title(class="form-control")}}
+        {{form.description.label(class="form-label")}}
+        {{form.description(class="form-control")}}
+        <div class="d-flex justify-content-between">
+          <div>
+            {{form.bedrooms.label(class="form-label")}}
+            {{form.bedrooms(class="form-control")}}
+          </div>
+          <div>
+            {{form.bathrooms.label(class="form-label")}}
+            {{form.bathrooms(class="form-control")}}
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            {{form.price.label(class="form-label")}}
+            {{form.price(class="form-control")}}
+          </div>
+          <div>
+            {{form.type.label(class="form-label")}}
+            {{form.type(class="form-control")}}
+          </div>
+        </div>
+        {{form.location.label(class="form-label")}}
+        {{form.location(class="form-control")}}
+        {{form.photo.label(class="form-label")}}
+        {{form.photo(class="form-control")}}
+      </div>
+
+      <button type="submit" name="submit" class="btn btn-primary">
+        Upload file
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}
