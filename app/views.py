@@ -75,7 +75,7 @@ def property_detail(propertyid):
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Jordan Laylor")
 
 
 ###
